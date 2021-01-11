@@ -7,6 +7,9 @@
 {% block body %}
     <h1>Page: {{title}}</h1>
 
-    <div>{{content}}</div>
-
+    <div>{{content|safe}}</div>
+<form method="POST" action="{% url 'editor' title %}">
+{% csrf_token %}
+    <input type="submit" value="Edit this entry"></input>
+</form>
 {% endblock %}
